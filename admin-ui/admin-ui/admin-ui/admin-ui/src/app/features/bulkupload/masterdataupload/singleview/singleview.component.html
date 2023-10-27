@@ -1,0 +1,65 @@
+<br><br>
+<span class="breadcrumb">
+        <a (click)="cancel()">&nbsp;&nbsp; Master Data Upload &nbsp;&nbsp;</a> / 
+        &nbsp;&nbsp; Detailed View
+</span>
+<br><br>
+<div id="flex-single-view" style="padding-top: 12px;" *ngIf="data">
+  <div id="flex-container">
+   <div class="card">
+      <mat-card>
+        <div class="item1" style="flex: 3.2;-webkit-box-flex: 3.2;">
+          <div class="profile-img">
+            <img src="./assets/images/icon_center.svg" alt="img">
+          </div>
+          <div class="item2">
+            <h3>{{data.transcationId}}</h3>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="flex-body">
+      <mat-card>
+        <mat-card-content class="forms-container" style="width: 100%">
+          <div class="primary-form" style="width: 40%">
+            <mat-form-field>
+              <mat-label>Operation</mat-label>
+              <input matInput placeholder="Operation" id="operation" value="{{data.operation}}" readonly>
+            </mat-form-field> 
+            <mat-form-field>
+              <mat-label>Status</mat-label>
+              <input matInput placeholder="Status" id="status" value="{{data.status}}" readonly>
+            </mat-form-field> 
+            <mat-form-field>
+              <mat-label>Uploaded BY</mat-label>
+              <input matInput placeholder="Status" id="uploadedBy" value="{{data.uploadedBy}}" readonly>
+            </mat-form-field> 
+          </div>
+          <div style="width: 10%">
+          </div>
+          <div class="primary-form" style="width: 40%">
+            <mat-form-field>
+              <mat-label>Table Name</mat-label>
+              <input matInput placeholder="Table Name" id="entityName" value="{{data.entityName}}" readonly>
+            </mat-form-field> 
+            <mat-form-field>
+              <mat-label>Count</mat-label>
+              <input matInput placeholder="Table Name" id="count" value="{{data.count}}" readonly>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Date and Time</mat-label>
+              <input matInput placeholder="Table Name" id="timeStamp" value="{{data.timeStamp | date:'short'}}" readonly>
+            </mat-form-field> 
+          </div> 
+          <div style="width: 10%">
+          </div>
+        </mat-card-content>
+        <div class="primary-form" style="max-width: 90%;padding: 25px;">
+          <mat-label style="color: rgba(0, 0, 0, 0.54);padding: 10px;font-size: 11px;font-weight: 600;">Status Description</mat-label>
+          <div style="padding: 10px;border-bottom: 1px solid #888;" id="statusDescription" [innerHTML]="data.statusDescription"></div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+      

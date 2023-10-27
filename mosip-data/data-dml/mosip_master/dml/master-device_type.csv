@@ -1,0 +1,2 @@
+code,name,descr,lang_code,is_active,cr_by,cr_dtimes
+IRS,Iris Scanner,For scanning Iris,eng,TRUE,superadmin,now()

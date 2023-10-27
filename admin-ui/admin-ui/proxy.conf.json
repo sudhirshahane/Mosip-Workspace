@@ -1,0 +1,10 @@
+{
+    "/v1/admin": {
+      "target": "http://localhost:8098/v1/",
+      "secure": true,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/v1/admin": "admin"
+      }
+    }
+  }

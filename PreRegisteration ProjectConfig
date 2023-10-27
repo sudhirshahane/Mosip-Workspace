@@ -1,0 +1,37 @@
+Java version Switching command in Linux using ::-
+-------------------------------------------------
+sudo update-alternatives --config java
+
+
+
+Start Command For Config Server ::-
+-------------------------------------
+
+java -jar -Dserver.servlet.path=/ -Dspring.profiles.active=native  -Dspring.cloud.config.server.native.search-locations=file:////home/trueid/Desktop/workspace/MosipConfig/mosip-config -Dspring.cloud.config.server.accept-empty=true  -Dspring.cloud.config.server.git.force-pull=false -Dspring.cloud.config.server.git.cloneOnStart=false -Dspring.cloud.config.server.git.refreshRate=0 kernel-config-server-1.1.2.jar 
+
+
+Mock Biometric Service Start ::-
+----------------
+java -cp mock-mds-1.2.0.1-B1.jar:lib/* io.mosip.mock.sbi.test.TestMockSBI "mosip.mock.sbi.device.purpose=Registration" "mosip.mock.sbi.biometric.type=Biometric Device"
+
+
+trueid@trueid-ThinkPad-E14-Gen-2:~/Desktop/workspace/mosip-mock-services/MockMDS/target$ java -cp mock-mds-1.2.0.1-B1.jar:lib/* io.mosip.mock.sbi.test.TestMockSBI "mosip.mock.sbi.device.purpose=Registration" "mosip.mock.sbi.biometric.type=Biometric Device"
+
+WebSub Consolidator and Hub Stating below command::-
+----------------------------------------------------
+
+trueid@trueid-ThinkPad-E14-Gen-2:~/Desktop/workspace/websub/consolidator$ bal run target/bin/consolidatorService.jar 
+
+
+trueid@trueid-ThinkPad-E14-Gen-2:~/Desktop/workspace/websub/hub$ bal run target/bin/kafkaHub.jar 
+
+Kafka Starting below command::-
+------------------------------
+/kafka::/> ./bin/zookeeper-server-start.sh config/zookeeper.properties
+
+/kafka::/> JMX_PORT=8004 ./bin/kafka-server-start.sh config/server.properties
+
+Kafka UI Starting below command
+----------------------------------
+trueid@trueid-ThinkPad-E14-Gen-2:~/Desktop/workspace/CMAK/target/universal/cmak-3.0.0.7$ bin/cmak -Dconfig.file=conf/application.conf -Dhttp.port=8071
+

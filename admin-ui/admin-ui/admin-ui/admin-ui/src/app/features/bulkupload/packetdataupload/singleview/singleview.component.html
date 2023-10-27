@@ -1,0 +1,64 @@
+<br><br>
+<span class="breadcrumb">
+        <a (click)="cancel()">&nbsp;&nbsp;{{'packet-upload.header'|translate}}&nbsp;&nbsp;</a> / 
+        &nbsp;&nbsp; {{'packet-upload.singleView.detailed-view-txt'|translate}}
+</span>
+<br><br>
+<div id="flex-single-view" style="padding-top: 12px;" *ngIf="data">
+  <div id="flex-container">
+   <div class="card">
+      <mat-card>
+        <div class="item1" style="flex: 3.2;-webkit-box-flex: 3.2;">
+          <div class="profile-img">
+            <img src="./assets/images/icon_center.svg" alt="img">
+          </div>
+          <div class="item2">
+            <h3>{{data.transcationId}}</h3>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="flex-body">
+      <mat-card>
+        <mat-card-content class="forms-container" style="width: 100%">
+          <div class="primary-form" style="width: 40%"> 
+            <mat-form-field>
+              <mat-label>{{'packet-upload.singleView.status-txt'|translate}}</mat-label>
+              <input matInput placeholder="{{'packet-upload.singleView.status-txt'|translate}}" id="status" value="{{data.status}}" readonly>
+            </mat-form-field> 
+            <mat-form-field>
+              <mat-label>{{'packet-upload.singleView.uploadedBy-txt'|translate}}</mat-label>
+              <input matInput placeholder="{{'packet-upload.singleView.status-txt'|translate}}" id="uploadedBy" value="{{data.uploadedBy}}" readonly>
+            </mat-form-field> 
+          </div>
+          <div style="width: 10%">
+          </div>
+          <div class="primary-form" style="width: 40%">
+            <mat-form-field>
+              <mat-label>{{'packet-upload.singleView.count-txt'|translate}}</mat-label>
+              <input matInput placeholder="{{'packet-upload.singleView.placeHolder1-txt'|translate}}" id="count" value="{{data.count}}" readonly>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{'packet-upload.singleView.dataAndTime-txt'|translate}}</mat-label>
+              <input matInput placeholder="{{'packet-upload.singleView.placeHolder1-txt'|translate}}" id="timeStamp" value="{{data.timeStamp | date:'short'}}" readonly>
+            </mat-form-field> 
+          </div> 
+          <div style="width: 10%">
+          </div>
+        </mat-card-content>
+        <div class="primary-form" style="max-width: 90%;padding: 25px;">
+          <mat-label style="color: rgba(0, 0, 0, 0.54);padding: 10px;font-size: 11px;font-weight: 600;">Status Description</mat-label>
+          <div style="padding: 10px;border-bottom: 1px solid #888;" id="statusDescription" [innerHTML]="data.statusDescription"></div>
+        </div>
+        <!-- <mat-card-content class="forms-container" *ngIf="data.statusDescription">
+          <div class="primary-form" style="max-width: 90%">
+             <mat-form-field>
+              <mat-label>{{'packet-upload.singleView.failureDescription-txt'|translate}}</mat-label>
+              <textarea matInput placeholder="{{'packet-upload.singleView.placeHolder2-txt'|translate}}" id="statusDescription" value="{{data.statusDescription}}" rows="3" cols="40" readonly></textarea>
+            </mat-form-field> 
+          </div>
+        </mat-card-content> -->
+      </mat-card>
+    </div>
+  </div>
+</div>
